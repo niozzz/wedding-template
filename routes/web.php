@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminDashboardC;
+use App\Http\Controllers\UserDashboardC;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomePage::class, 'index']);
+// Route::get('/admin/dashboard', [AdminDashboardC::class, 'index'])->name('admin-dashboard');
+Route::get('/user/dashboard', [UserDashboardC::class, 'index'])->name('user-dashboard');
+
